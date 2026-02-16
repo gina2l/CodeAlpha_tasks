@@ -45,17 +45,5 @@ Calculator/
 └── README.md
 ```
 
----
-
-## 💡 Future Improvements
-
-* Scientific calculator mode
-* Theme customization
-* Calculation export
-* PWA support
-
----
-
-## 👩‍💻 Author
 
 Frontend Intern Project – CodeAlpha
