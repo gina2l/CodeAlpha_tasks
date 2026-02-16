@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Studio | Professional Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h1>Gallery<span>Studio</span></h1>
+    </div>
+    <button id="themeToggle" class="mode-toggle">🌙 / ☀️</button>
+</header>
+
+<main class="container">
+    <!-- Upload Section -->
+    <section class="upload-section">
+        <div class="upload-controls">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📁</div>
+                <p>Drag & drop images or <span>Browse</span></p>
+                <input type="file" id="fileInput" multiple accept="image/*">
+            </div>
+            
+            <div class="upload-settings">
+                <label>Target Album:</label>
+                <select id="uploadCategory">
+                    <option value="nature">Nature</option>
+                    <option value="city">City</option>
+                    <option value="architecture">Architecture</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <nav class="filter-bar">
+        <button class="active" onclick="filterGallery('all')">All Folders</button>
+        <button onclick="filterGallery('nature')">Nature</button>
+        <button onclick="filterGallery('city')">City</button>
+        <button onclick="filterGallery('architecture')">Architecture</button>
+        <button onclick="filterGallery('other')">Other</button>
+    </nav>
+
+    <!-- Gallery Container -->
+    <div id="galleryContainer">
+        
+        <!-- Nature Folder -->
+        <section class="category-group" id="sec-nature">
+            <h2 class="folder-title">🌿 Nature Album</h2>
+            <div class="gallery masonry" id="gallery-nature">
+                <div class="card nature" data-category="nature">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80">
+                    <div class="card-info">
+                        <h3 contenteditable="true">Mountain Peak</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- City Folder -->
+        <section class="category-group" id="sec-city">
+            <h2 class="folder-title">🌆 City Album</h2>
+            <div class="gallery masonry" id="gallery-city">
+                <div class="card city" data-category="city">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=800&q=80">
+                    <div class="card-info">
+                        <h3 contenteditable="true">Urban Evening</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture Folder -->
+        <section class="category-group" id="sec-architecture">
+            <h2 class="folder-title">🏢 Architecture Album</h2>
+            <div class="gallery masonry" id="gallery-architecture">
+                <div class="card architecture" data-category="architecture">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80">
+                    <div class="card-info">
+                        <h3 contenteditable="true">Modern Steel</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Folder (Hidden by default until used) -->
+        <section class="category-group" id="sec-other" style="display: none;">
+            <h2 class="folder-title">📁 Other Album</h2>
+            <div class="gallery masonry" id="gallery-other"></div>
+        </section>
+
+    </div>
+</main>
+
+<!-- Lightbox Studio View -->
+<div class="lightbox" id="lightbox">
+    <span class="close-btn" onclick="closeLightbox()">&times;</span>
+    <div class="lightbox-content">
+        <div class="image-viewer">
+            <button class="nav-btn prev" onclick="prevImage()">❮</button>
+            <img id="lightboxImg">
+            <button class="nav-btn next" onclick="nextImage()">❯</button>
+        </div>
+
+        <div class="editor-sidebar">
+            <h3>Image Studio</h3>
+            <div class="control-group">
+                <label>Brightness</label>
+                <input type="range" id="brightness" min="50" max="150" value="100">
+            </div>
+            <div class="control-group">
+                <label>Contrast</label>
+                <input type="range" id="contrast" min="50" max="150" value="100">
+            </div>
+            <div class="control-group">
+                <label>Grayscale</label>
+                <input type="range" id="grayscale" min="0" max="100" value="0">
+            </div>
+            <button class="reset-btn" onclick="resetFilters()">Reset Studio</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

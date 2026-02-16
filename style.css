@@ -1,0 +1,73 @@
+:root {
+    --primary: #6366f1;
+    --bg: #0f172a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text: #f8fafc;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+body.light {
+    --bg: #f1f5f9;
+    --card-bg: #ffffff;
+    --text: #1e293b;
+    --border: rgba(0, 0, 0, 0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background: var(--bg); color: var(--text); transition: 0.4s; padding-bottom: 80px; }
+
+header { padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+header h1 span { color: var(--primary); }
+.mode-toggle { padding: 10px 15px; border-radius: 12px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text); cursor: pointer; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+
+/* Upload Section */
+.upload-controls { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 50px; }
+.upload-area { border: 2px dashed var(--primary); border-radius: 20px; padding: 30px; text-align: center; background: var(--card-bg); cursor: pointer; }
+.upload-settings { background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; justify-content: center; }
+.upload-settings select { padding: 10px; border-radius: 8px; background: #1e293b; color: white; border: 1px solid var(--primary); margin-top: 10px; }
+
+/* Filter Bar */
+.filter-bar { display: flex; gap: 10px; justify-content: center; margin-bottom: 50px; flex-wrap: wrap; }
+.filter-bar button { padding: 10px 25px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text); border-radius: 30px; cursor: pointer; font-weight: 600; }
+.filter-bar button.active { background: var(--primary); color: white; }
+
+/* Category Group Folders */
+.category-group { margin-bottom: 60px; }
+.folder-title { font-size: 22px; margin-bottom: 25px; border-bottom: 2px solid var(--primary); width: fit-content; padding-bottom: 5px; }
+
+/* Masonry Layout */
+.masonry { columns: 3; column-gap: 20px; }
+.card { break-inside: avoid; margin-bottom: 20px; background: var(--card-bg); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s ease; }
+.card img { width: 100%; display: block; cursor: pointer; transition: 0.4s; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+
+.card-info { padding: 15px; }
+.card-info h3 { font-size: 16px; outline: none; padding: 5px; border-radius: 4px; }
+.card-info h3:focus { background: rgba(99, 102, 241, 0.15); border-bottom: 2px solid var(--primary); }
+
+/* Lightbox Studio */
+.lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.98); display: none; z-index: 1000; padding: 30px; }
+.lightbox-content { display: flex; width: 100%; height: 100%; gap: 30px; }
+.image-viewer { flex: 3; display: flex; align-items: center; justify-content: center; position: relative; }
+.image-viewer img { max-width: 100%; max-height: 85vh; border-radius: 10px; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
+.editor-sidebar { flex: 1; background: #1e293b; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 25px; color: white; border: 1px solid rgba(255,255,255,0.1); }
+
+.control-group label { display: block; margin-bottom: 10px; font-size: 14px; color: #94a3b8; }
+.control-group input { width: 100%; accent-color: var(--primary); }
+.reset-btn { margin-top: auto; padding: 12px; border-radius: 10px; border: none; background: #ef4444; color: white; cursor: pointer; font-weight: bold; }
+
+.nav-btn { background: rgba(255,255,255,0.1); color: white; border: none; width: 55px; height: 55px; border-radius: 50%; cursor: pointer; font-size: 22px; position: absolute; transition: 0.3s; }
+.nav-btn:hover { background: var(--primary); }
+.nav-btn:disabled { background: rgba(255,255,255,0.05); color: #4b5563; cursor: not-allowed; opacity: 0.5; transform: scale(0.9); }
+
+.prev { left: 20px; } .next { right: 20px; }
+.close-btn { position: absolute; top: 20px; right: 30px; font-size: 40px; color: white; cursor: pointer; z-index: 1001; }
+
+@media (max-width: 900px) {
+    .masonry { columns: 2; }
+    .upload-controls { grid-template-columns: 1fr; }
+    .lightbox-content { flex-direction: column; overflow-y: auto; }
+    .editor-sidebar { flex: none; width: 100%; }
+}
