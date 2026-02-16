@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realistic Pro Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-bar">
+    <button class="mode-toggle" onclick="toggleMode()">🌙 / ☀️</button>
+</div>
+
+<div class="app-container">
+    <div class="calculator-case">
+        <div class="calculator">
+            <div class="brand">ELECTRONIC SERIES</div>
+            
+            <div class="screen-area">
+                <input type="text" id="display" placeholder="0" disabled>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-ctrl" onclick="clearDisplay()">AC</button>
+                <button class="btn-op" onclick="appendValue('/')">÷</button>
+                <button class="btn-op" onclick="appendValue('*')">×</button>
+                <button class="btn-ctrl" onclick="deleteLast()">⌫</button>
+
+                <button onclick="appendValue('7')">7</button>
+                <button onclick="appendValue('8')">8</button>
+                <button onclick="appendValue('9')">9</button>
+                <button class="btn-op" onclick="appendValue('-')">−</button>
+
+                <button onclick="appendValue('4')">4</button>
+                <button onclick="appendValue('5')">5</button>
+                <button onclick="appendValue('6')">6</button>
+                <button class="btn-op" onclick="appendValue('+')">+</button>
+
+                <button onclick="appendValue('1')">1</button>
+                <button onclick="appendValue('2')">2</button>
+                <button onclick="appendValue('3')">3</button>
+                <button class="equals" onclick="calculate()">=</button>
+
+                <button class="zero" onclick="appendValue('0')">0</button>
+                <button onclick="appendValue('.')">.</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="history-panel">
+        <div class="history-header">
+            <h3>LOG HISTORY</h3>
+            <button class="clear-history" onclick="clearHistory()">Clear</button>
+        </div>
+        <ul id="historyList"></ul>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
